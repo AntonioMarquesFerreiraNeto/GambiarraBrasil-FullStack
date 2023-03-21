@@ -1,4 +1,6 @@
-﻿using GambiarraBrasil.Models;
+﻿using GambiarraBrasil.Filter;
+using GambiarraBrasil.Helpers;
+using GambiarraBrasil.Models;
 using GambiarraBrasil.Repositorio;
 using Microsoft.AspNetCore.Mvc;
 using System;
@@ -7,13 +9,19 @@ namespace GambiarraBrasil.Controllers {
     public class RegistroUserController : Controller {
 
         private readonly UserIRepositorio _repositorioRegistroUser;
+        private readonly ISection _section;
 
-        public RegistroUserController(UserIRepositorio repositorioRegistroUser) {
+        public RegistroUserController(UserIRepositorio repositorioRegistroUser, ISection section) {
             _repositorioRegistroUser = repositorioRegistroUser;
+            _section = section;
         }
 
         public IActionResult Index() {
             ViewData["Title"] = "Novo usuário";
+            if (_section.buscarSectionUser() != null) {
+                TempData["Erro"] = "Ops! Para registrar um novo perfil, é necessário sair do sistema!";
+                return RedirectToAction("Index", "Home");
+            }
             return View();
         }
 

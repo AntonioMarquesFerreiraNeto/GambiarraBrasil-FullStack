@@ -1,4 +1,5 @@
-﻿using GambiarraBrasil.Models;
+﻿using GambiarraBrasil.Filter;
+using GambiarraBrasil.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using System;
@@ -8,6 +9,7 @@ using System.Linq;
 using System.Threading.Tasks;
 
 namespace GambiarraBrasil.Controllers {
+    [PagUserAutenticado]
     public class HomeController : Controller {
         private readonly ILogger<HomeController> _logger;
 

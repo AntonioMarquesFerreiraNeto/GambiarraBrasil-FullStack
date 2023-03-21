@@ -1,12 +1,7 @@
 ﻿@{
     Layout = "_LayoutNoConection";
 }
-@if (TempData["Sucesso"] != null) {
-    <div class="alert alert-success" role="alert">
-        @TempData["Sucesso"]
-        <button type="button" class="btn btn-danger btn-sm close-alert sucesso" aria-label="Close"><i class="fa fa-xmark"></i></button>
-    </div>
-}
+
 @model Autenticar
 <link rel="stylesheet" href="~/_css/logar.css">
 <link rel="stylesheet" href="~/_css/estiloGlobal.css">
@@ -15,6 +10,14 @@
         <div class="alert alert-danger" role="alert">
             @TempData["Erro"]
             <button type="button" class="btn btn-danger btn-sm close-alert error" aria-label="Close"><i class="fa fa-xmark"></i></button>
+        </div>
+    </div>
+}
+else if (TempData["Sucesso"] != null) {
+    <div class="container-center">
+        <div class="alert alert-success" role="alert">
+            @TempData["Sucesso"]
+            <button type="button" class="btn btn-danger btn-sm close-alert sucesso" aria-label="Close"><i class="fa fa-xmark"></i></button>
         </div>
     </div>
 }

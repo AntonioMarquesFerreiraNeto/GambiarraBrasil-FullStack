@@ -8,7 +8,7 @@
     display: flex;
     justify-content: center;
     top: 19px;
-    height: 53px;
+    height: 46px;
     min-width: 300px;
     padding: 10px;
     border-radius: 10px;
@@ -21,21 +21,23 @@
     border-radius: 100%;
     top: -13px;
     right: -15px;
-    width: 30px;
-    height: 30px;
+    width: 33px;
+    height: 33px;
     color: white;
 }
 
-.alert-success{
-    
+.alert-success {
+    color: white;
+    background-color: rgb(0, 131, 0);
+    border: 1px solid rgb(0, 131, 0);
 }
-.sucesso{
-    background-color: forestgreen;
-    border: 1px solid forestgreen;
+.sucesso {
+    background-color: rgb(0, 111, 0);
+    border: 1px solid rgb(0, 110, 0);
 }
     .sucesso:hover {
-        background-color: darkgreen;
-        border: 1px solid darkgreen;
+        background-color: rgb(0, 81, 0);
+        border: 1px solid rgb(0, 81, 0);
     }
 
 .alert-danger{

@@ -16,7 +16,7 @@ namespace GambiarraBrasil.Models {
         public string Phone { get; set; }
 
         [Required(ErrorMessage = "Campo obrigatório!")]
-        [ValidarForcaSenha(CaracterEspecialRequerido = true, SenhaForteRequerida = true, SenhaTamanhoMinimo = 5, ErrorMessage = "Nível de complexidade abaixo do esperado!")]
+        //[ValidarForcaSenha(CaracterEspecialRequerido = true, SenhaForteRequerida = true, SenhaTamanhoMinimo = 5, ErrorMessage = "Nível de complexidade abaixo do esperado!")]
         public string SenhaUser { get; set; }
 
         [Required(ErrorMessage = "Campo obrigatório!")]

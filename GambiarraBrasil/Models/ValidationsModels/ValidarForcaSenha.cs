@@ -15,7 +15,6 @@ namespace GambiarraBrasil.Models.ValidationsModels {
         public Boolean CaracterEspecialRequerido { get; set; }
         public ValidarForcaSenha() {
             this.SenhaTamanhoMinimo = 8;
-            this.SenhaTamanhoMaximo = 14;
             this.SenhaForteRequerida = true;
             this.CaracterEspecialRequerido = true;
             this.ErrorMessage = "";

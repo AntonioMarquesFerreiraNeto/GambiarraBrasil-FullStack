@@ -1,7 +1,9 @@
 using GambiarraBrasil.Data;
+using GambiarraBrasil.Helpers;
 using GambiarraBrasil.Repositorio;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
@@ -25,8 +27,16 @@ namespace GambiarraBrasil {
             services.AddControllersWithViews();
             services.AddDbContext<BancoContext>(
                 options => options.UseMySql(Configuration.GetConnectionString("BancoContext"), builder => builder.MigrationsAssembly("GambiarraBrasil")));
+
+            services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
+
             services.AddScoped<UserIRepositorio, UserRepositorio>();
             services.AddScoped<ArtigoIRepositorio, ArtigoRepositorio>();
+            services.AddScoped<ISection, Section>();
+            services.AddSession(o => {
+                o.Cookie.HttpOnly = true;
+                o.Cookie.IsEssential = true;
+            });
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -45,6 +55,8 @@ namespace GambiarraBrasil {
             app.UseRouting();
 
             app.UseAuthorization();
+
+            app.UseSession();
 
             app.UseEndpoints(endpoints => {
                 endpoints.MapControllerRoute(
