@@ -7,17 +7,16 @@ namespace GambiarraBrasil.Models {
 
         public int Id { get; set; }
 
-        [Required(ErrorMessage = "Campo obrigatório!")]
+        [Required]
         public string Name { get; set; }
 
-        [Required(ErrorMessage = "Campo obrigatório!")]
+        [Required]
         public string Email { get; set; }
 
-        [Required(ErrorMessage = "Campo obrigatório!")]
+        [Required]
         public string Phone { get; set; }
 
-        [Required(ErrorMessage = "Campo obrigatório!")]
-        //[ValidarForcaSenha(CaracterEspecialRequerido = true, SenhaForteRequerida = true, SenhaTamanhoMinimo = 5, ErrorMessage = "A senha deve conter letras, números e caractéres especiais!")]
+        [Required]
         public string SenhaUser { get; set; }
 
         public void CriptografarSenha() {

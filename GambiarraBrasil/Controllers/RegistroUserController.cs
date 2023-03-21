@@ -18,18 +18,22 @@ namespace GambiarraBrasil.Controllers {
         }
 
         [HttpPost]
-        public IActionResult Index(Usuario usuario) {
+        public IActionResult Index(RegistroUser user) {
             try {
                 if (ModelState.IsValid) {
-                    _repositorioRegistroUser.CreateUser(usuario);
+                    if (user.SenhaUser.Trim() != user.ConfirmarSenha.Trim()) {
+                        TempData["Erro"] = $"Sua senha e “Confirmar senha“ não são iguais!";
+                        return View(user);
+                    }
+                    _repositorioRegistroUser.CreateUser(user);
                     TempData["Sucesso"] = "Registrado com sucesso!";
                     return RedirectToAction("Index", "Logar");
                 }
-                return View(usuario);
+                return View(user);
             }
             catch (Exception error) {
                 TempData["Erro"] = error.Message;
-                return View(usuario);
+                return View(user);
             }
         }
     }

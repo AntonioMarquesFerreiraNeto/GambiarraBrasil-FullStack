@@ -2,7 +2,7 @@
 
 namespace GambiarraBrasil.Repositorio {
     public interface UserIRepositorio {
-        public Usuario CreateUser(Usuario usuario);
+        public RegistroUser CreateUser(RegistroUser usuario);
         public Usuario ValidarCredenciais(Autenticar usuario);
     }
 }

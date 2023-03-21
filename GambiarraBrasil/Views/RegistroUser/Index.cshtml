@@ -10,7 +10,7 @@
         </div>
     </div>
 }
-@model Usuario
+@model RegistroUser
 <link rel="stylesheet" href="~/_css/cadastrar.css">
 <section id="InformationAndRegistre">
     <div class="container">
@@ -78,7 +78,7 @@
                                     <div class="input-group-prepend">
                                         <span class="input-group-text"><i class="fas fa-key"></i></span>
                                     </div>
-                                    <input type="password" class="form-control" placeholder="Informe sua senha." asp-for="SenhaUser">
+                                    <input type="password" class="form-control" placeholder="Informe sua senha." asp-for="SenhaUser" id="senha">
                                     <div class="error-message">
                                         <small>
                                             @Html.ValidationMessageFor(x => x.SenhaUser)
@@ -89,7 +89,10 @@
                                     <div class="input-group-prepend">
                                         <span class="input-group-text"><i class="fas fa-key"></i></span>
                                     </div>
-                                    <input type="password" class="form-control" placeholder="Confirmar senha.">
+                                    <input type="password" class="form-control" placeholder="Confirmar senha." asp-for="ConfirmarSenha" id="confirmarSenha">
+                                    <div class="error-message">
+                                        <small>@Html.ValidationMessageFor(x => x.ConfirmarSenha)</small>
+                                    </div>
                                 </div>
                                 <div class="input-group form-group">
                                     <div class="input-group-prepend">
@@ -102,8 +105,8 @@
                                         </small>
                                     </div>
                                 </div>
-                                <div class="row align-items-center remember">
-                                    <input type="checkbox">Lembre-se de Mim
+                                <div class="row align-items-center remember" style="font-size: 10pt;">
+                                    <input type="checkbox" Onclick="MostrarSenhas()">Mostrar senhas
                                 </div>
                                 <div class="form-group">
                                     <input type="submit" value="Cadastrar" class="btn float-right login_btn">
@@ -124,3 +127,4 @@
         </div>
     </div>
 </section>
+<script src="~/js/Rotinas do front-end.js"></script>

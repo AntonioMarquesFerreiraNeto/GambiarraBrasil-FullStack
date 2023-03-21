@@ -13,26 +13,27 @@ namespace GambiarraBrasil.Repositorio {
             _bancoContext = bancoContext;
         }
 
-        public Usuario CreateUser(Usuario usuario) {
+        public RegistroUser CreateUser(RegistroUser registroUser) {
             try {
-                usuario = UsuarioTrim(usuario);
+                Usuario usuario = PopularUsuario(registroUser);
                 if (ValidarDuplicataUser(usuario)) throw new Exception("Desculpe, alguns dos registros passados já existem no sistema!");
                 usuario.CriptografarSenha();
                 _bancoContext.Add(usuario);
                 _bancoContext.SaveChanges();
-                return usuario;
+                return registroUser;
             }
             catch (Exception error) {
                 throw new Exception(error.Message);
             }
         }
 
-        public Usuario UsuarioTrim(Usuario value) {
-            value.Name = value.Name.Trim();
-            value.Email = value.Email.Trim();
-            value.Phone = value.Phone.Trim();
-            value.SenhaUser = value.SenhaUser.Trim();
-            return value;
+        public Usuario PopularUsuario(RegistroUser value) {
+            Usuario usuario = new Usuario();
+            usuario.Name = value.Name.Trim();
+            usuario.Email = value.Email.Trim();
+            usuario.Phone = value.Phone.Trim();
+            usuario.SenhaUser = value.SenhaUser.Trim();
+            return usuario;
         }
 
         public Usuario ValidarCredenciais(Autenticar usuario) {
