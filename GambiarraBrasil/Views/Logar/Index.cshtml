@@ -1,0 +1,104 @@
+﻿@{
+    Layout = "_LayoutNoConection";
+}
+@model Autenticar
+<link rel="stylesheet" href="~/_css/logar.css">
+<link rel="stylesheet" href="~/_css/estiloGlobal.css">
+@if (TempData["Erro"] != null) {
+    <div class="container-center">
+        <div class="alert alert-danger" role="alert">
+            @TempData["Erro"]
+            <button type="button" class="btn btn-danger btn-sm close-alert error" aria-label="Close"><i class="fa fa-xmark"></i></button>
+        </div>
+    </div>
+}
+<section id="InformationAndLogin">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6">
+                <div class="d-flex justify-content-center h-100">
+                    <a href="https://www.paypal.com/donate/?hosted_button_id=4M9PAR6F9RKE4"
+                       id="facePagment">
+                        <div class="card1">
+                            <div class="card-header">
+                                <h3>Atenção!</h3>
+                            </div>
+                            <div>
+                                <p id="avisoP">
+                                    Ajude o projeto gambiarraBrasil.com. Por que você deve ajudar o projeto
+                                    gambiarraBrasil? O
+                                    projeto gambiarraBrasil é uma iniciativa sem fins lucrativos para
+                                    aprendizado em
+                                    desenvolvimento
+                                    WEB, ou seja, ele não tem money para continuar e se você não ajudar, uma
+                                    grande
+                                    iniciativa pode
+                                    entrar em declinio. Clique já e ajude nosso projeto!
+                                </p>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="d-flex justify-content-center h-100">
+                    <div class="card">
+                        <div class="card-header">
+                            <h3>Logar</h3>
+                        </div>
+                        <div class="card-body">
+                            <form asp-action="Index" asp-controller="Logar" method="post">
+                                <div class="input-group form-group">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text"><i class="fas fa-user"></i></span>
+                                    </div>
+                                    <input type="email" class="form-control" placeholder="Informe seu email" asp-for="Email">
+                                    <div class="error-message">
+                                        <small>
+                                            @Html.ValidationMessageFor(x => x.Email)
+                                        </small>
+                                    </div>
+                                </div>
+                                <div class="input-group form-group">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text"><i class="fas fa-key"></i></span>
+                                    </div>
+                                    <input type="password" class="form-control" placeholder="Informe sua senha" asp-for="Senha" id="senha">
+                                    <div class="error-message">
+                                        <small class="error-message">
+                                            @Html.ValidationMessageFor(x => x.Senha)
+                                        </small>
+                                    </div>
+                                </div>
+                                <div class="row align-items-center remember" style="font-size: 10pt;">
+                                    <input type="checkbox" id="mascara-senha" onclick="Mostrar()">Mostrar senha
+                                </div>
+                                <div class="form-group">
+                                    <input type="submit" value="Logar" class="btn float-right login_btn">
+                                </div>
+                            </form>
+                        </div>
+                        <div class="card-footer">
+                            <div class="d-flex justify-content-center links">
+                                Não tem uma conta?<a asp-action="Index" asp-controller="RegistroUser">Inscrição</a>
+                            </div>
+                            <div class="d-flex justify-content-center">
+                                <a href="#">Esqueceu sua senha?</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<script>
+    function Mostrar(){
+        let senha = document.querySelector("input#senha");
+        if(senha.type == 'password'){
+            senha.type = 'text';
+        } else{
+            senha.type = "password";
+        }
+    }
+</script>

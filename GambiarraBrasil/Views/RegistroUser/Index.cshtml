@@ -1,0 +1,126 @@
+﻿@{
+    Layout = "_LayoutNoConection";
+}
+<link rel="stylesheet" href="~/_css/estiloGlobal.css">
+@if (TempData["Erro"] != null) {
+    <div class="container-center">
+        <div class="alert alert-danger" role="alert">
+            @TempData["Erro"]
+            <button type="button" class="btn btn-danger btn-sm close-alert error" aria-label="Close"><i class="fa fa-xmark"></i></button>
+        </div>
+    </div>
+}
+@model Usuario
+<link rel="stylesheet" href="~/_css/cadastrar.css">
+<section id="InformationAndRegistre">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6">
+                <div class="d-flex justify-content-center h-100">
+                    <div class="card1">
+                        <div class="card-header">
+                            <h3> Você quer doar para um projeto épico? Leia o texto logo a baixo.</h3>
+                        </div>
+                        <div>
+                            <p id="avisoP">
+                                Ajude o projeto gambiarraBrasil.com. Por que você deve ajudar o projeto
+                                gambiarraBrasil? O
+                                projeto gambiarraBrasil é uma iniciativa sem fins lucrativos para aprendizado em
+                                desenvolvimento
+                                WEB, ou seja, ele não tem money para continuar e se você não ajudar, uma grande
+                                iniciativa pode
+                                entrar em declinio.
+                            </p>
+                            <p id="avisoP">
+                                Como posso ajudar? Acesse a opção "doar para o site" que está logo acima no menu
+                                do site,
+                                acessando
+                                a pagina você vai encontrar respostas mais completas, em resumo, você pode doar
+                                atráves de
+                                boletos,
+                                pix e até pratocinando o lanche da galera através do aplicativo Ai que Fome.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="d-flex justify-content-center h-100">
+                    <div class="card">
+                        <div class="card-header">
+                            <h3>Cadastrar</h3>
+                        </div>
+                        <div class="card-body">
+                            <form asp-action="Index" asp-controller="RegistroUser" method="post">
+                                <div class="input-group form-group">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text"><i class="fas fa-user"></i></span>
+                                    </div>
+                                    <input type="text" class="form-control" placeholder="Informe seu nome de usuário." asp-for="Name">
+                                    <div class="error-message">
+                                        <small>
+                                            @Html.ValidationMessageFor(x => x.Name)
+                                        </small>
+                                    </div>
+                                </div>
+                                <div class="input-group form-group">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text"><i class="fa fa-envelope"></i></span>
+                                    </div>
+                                    <input type="email" class="form-control" placeholder="Informe seu email." asp-for="Email">
+                                    <div class="error-message">
+                                        <small>
+                                            @Html.ValidationMessageFor(x => x.Email)
+                                        </small>
+                                    </div>
+                                </div>
+                                <div class="input-group form-group">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text"><i class="fas fa-key"></i></span>
+                                    </div>
+                                    <input type="password" class="form-control" placeholder="Informe sua senha." asp-for="SenhaUser">
+                                    <div class="error-message">
+                                        <small>
+                                            @Html.ValidationMessageFor(x => x.SenhaUser)
+                                        </small>
+                                    </div>
+                                </div>
+                                <div class="input-group form-group">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text"><i class="fas fa-key"></i></span>
+                                    </div>
+                                    <input type="password" class="form-control" placeholder="Confirmar senha.">
+                                </div>
+                                <div class="input-group form-group">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text"><i class="fas fa-phone"></i></span>
+                                    </div>
+                                    <input type="tel" class="form-control" placeholder="Informe seu telefone." asp-for="Phone">
+                                    <div class="error-message">
+                                        <small>
+                                            @Html.ValidationMessageFor(x => x.Phone)
+                                        </small>
+                                    </div>
+                                </div>
+                                <div class="row align-items-center remember">
+                                    <input type="checkbox">Lembre-se de Mim
+                                </div>
+                                <div class="form-group">
+                                    <input type="submit" value="Cadastrar" class="btn float-right login_btn">
+                                </div>
+                            </form>
+                        </div>
+                        <div class="card-footer">
+                            <div class="d-flex justify-content-center links">
+                                Já tem uma conta?<a asp-action="Index" asp-controller="Logar">Logar</a>
+                            </div>
+                            <div class="d-flex justify-content-center">
+                                <a href="#">Esqueceu sua senha?</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
