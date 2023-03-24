@@ -74,3 +74,6 @@ C:\Users\anton\source\repos\GambiarraBrasil\GambiarraBrasil\bin\Debug\netcoreapp
 C:\Users\anton\source\repos\GambiarraBrasil\GambiarraBrasil\bin\Debug\netcoreapp3.1\System.Web.WebPages.dll
 C:\Users\anton\source\repos\GambiarraBrasil\GambiarraBrasil\bin\Debug\netcoreapp3.1\Microsoft.Web.Infrastructure.dll
 C:\Users\anton\source\repos\GambiarraBrasil\GambiarraBrasil\obj\Debug\netcoreapp3.1\Razor\Views\Shared\Components\Menu\Default.cshtml.g.cs
+C:\Users\anton\source\repos\GambiarraBrasil\GambiarraBrasil\obj\Debug\netcoreapp3.1\Razor\Views\AdicionarArtigo\ArtigoAdd.cshtml.g.cs
+C:\Users\anton\source\repos\GambiarraBrasil\GambiarraBrasil\obj\Debug\netcoreapp3.1\Razor\Views\LerArtigos\Artigo.cshtml.g.cs
+C:\Users\anton\source\repos\GambiarraBrasil\GambiarraBrasil\obj\Debug\netcoreapp3.1\Razor\Views\MinhasPublicacoes\Index.cshtml.g.cs

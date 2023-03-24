@@ -1,0 +1,63 @@
+﻿@model Artigo
+@if (TempData["Erro"] != null) {
+    <div class="container-center">
+        <div class="alert alert-danger" role="alert">
+            @TempData["Erro"]
+            <button type="button" class="btn btn-danger btn-sm close-alert error" aria-label="Close"><i class="fa fa-xmark"></i></button>
+        </div>
+    </div>
+}
+else if (TempData["Sucesso"] != null) {
+    <div class="container-center">
+        <div class="alert alert-success" role="alert">
+            @TempData["Sucesso"]
+            <button type="button" class="btn btn-danger btn-sm close-alert sucesso" aria-label="Close"><i class="fa fa-xmark"></i></button>
+        </div>
+    </div>
+}
+<section id="sectionLobby">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12 capa">
+                <h1 class="animation">
+                    A melhor plataforma para ler artigos técnicos relacionados ao mundo da tecnologia da
+                    informação. Não perca
+                    tempo, leia agora!
+                </h1>
+            </div>
+        </div>
+    </div>
+</section>
+<section id="dissertacao">
+    @if (Model != null) {
+        <h2 id="titulo">Artigos > @Model.ReturnCategoria()</h2>
+        <div class="container artigo">
+            <header>
+                <h1>
+                    @Model.SubTitulo
+                </h1>
+            </header>
+            <article>
+                <header>
+                    <h2>@Model.Titulo.ToUpper()</h2>
+                </header>
+                <p>
+                    @Model.Conteudo
+                </p>
+            </article>
+        </div>
+        <div class="container artigo" style="margin-bottom: 0px; padding-bottom: 0px;">
+            <p style="text-align: right; font-size: 10pt;">
+                <strong>Autor: </strong> @Model.Usuario.Name <br>
+                <strong>Data de publicação: </strong> @Model.DataPublication.Value.ToString("dd/MM/yyyy")
+            </p>
+        </div>
+    }
+    else {
+        <div class="container artigo">
+            <article>
+                <p style="text-align: center;">Desculpe, houve algum problema! Não encontramos seu artigo!</p>
+            </article>
+        </div>
+    }
+</section>

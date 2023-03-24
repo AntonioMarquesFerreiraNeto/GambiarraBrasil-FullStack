@@ -13,6 +13,7 @@ body{
 
 /*As estilizações a seguir, são de menus sem bordas, portanto, maioria das configurações vão ficar na tag li. Já que o mesmo não tem borda e não necessita de precisão no click em volta do conteúdo.*/
 #cabecalho {
+    font-size: 10pt;
     margin-bottom: 220px;
 }
 .navbar-transparent {

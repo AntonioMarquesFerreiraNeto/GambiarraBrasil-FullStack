@@ -182,3 +182,15 @@ else if (TempData["Sucesso"] != null) {
         </article>
     </div>
 </section>
+<script>
+    function typeWrite(elemento) { // declarando a função e o parâmetro.
+        const txtArry = elemento.innerHTML.split(''); // a variável txtArray, além de receber o parametro passado para função, também separa caracter a caracter com o método "split";
+        elemento.innerHTML = ''; // para não mostrar a mensagem na tela, é passado vazio para mesma porque outra será imprimida logo abaixo.
+        txtArry.forEach((letra, i) => { // usando o forEach para pecorrer o vetor.
+            setTimeout(() => elemento.innerHTML += letra, 65 * i); //criando a formula do setTimeOut para determinar o tempo que quero para o efeito.
+            // perceba que o tempo terminado está em 65*i. Isto é, o primeiro elemento vai ser escrito em 65mls, e o segundo em 130mls, seguindo essa lógica até o último elemento.
+        });
+    }
+    const msg = document.querySelector("h1.animation"); // tendo acesso e recebendo a tag h1 que seu identificador é a classe animation.
+    typeWrite(msg); // chamando e passando o parâmetro para função typeWrite.
+</script>

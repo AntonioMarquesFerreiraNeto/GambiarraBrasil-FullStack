@@ -2,7 +2,7 @@
 <nav class="navbar navbar-expand-md navbar-light navbar-transparent">
     <div class="container">
         <a href="https://open.spotify.com/" class="navbar-brand">
-            <img src="_css/_imagens/techsolutions.png" width="102">
+            <img src="~/_css/_imagens/techsolutions.png" width="102">
         </a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#nav_principal"
                 aria-controls="nav_principal" aria-expanded="false" aria-label="Alterna navegação">
@@ -18,6 +18,9 @@
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" asp-controller="LerArtigos" asp-action="Index">Ler artigos</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" asp-controller="MinhasPublicacoes" asp-action="Index" asp-route-id="@Model.Id">Minhas publicações</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" asp-controller="Doar" asp-action="Index">Doar</a>
@@ -42,7 +45,7 @@
                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         <i class="fa fa-circle-user"></i> @Model.Name
                     </a>
-                    <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink" style="font-size: 11pt;">
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink" style="font-size: 10pt;">
                         <a class="dropdown-item" asp-action="Sair" asp-controller="Logar"><i class="fa fa-right-from-bracket"></i> Sair</a>
                         <a class="dropdown-item" href="https://ddtankmester337.netlify.app/">
                             <i class="fa fa-edit"></i> Alterar dados

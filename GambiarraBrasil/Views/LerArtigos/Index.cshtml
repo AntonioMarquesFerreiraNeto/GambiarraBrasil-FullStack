@@ -1,4 +1,21 @@
-﻿<link rel="stylesheet" href="~/_css/artigos.css">
+﻿@model List<Artigo>
+<link rel="stylesheet" href="~/_css/artigos.css">
+@if (TempData["Erro"] != null) {
+    <div class="container-center">
+        <div class="alert alert-danger" role="alert">
+            @TempData["Erro"]
+            <button type="button" class="btn btn-danger btn-sm close-alert error" aria-label="Close"><i class="fa fa-xmark"></i></button>
+        </div>
+    </div>
+}
+else if (TempData["Sucesso"] != null) {
+    <div class="container-center">
+        <div class="alert alert-success" role="alert">
+            @TempData["Sucesso"]
+            <button type="button" class="btn btn-danger btn-sm close-alert sucesso" aria-label="Close"><i class="fa fa-xmark"></i></button>
+        </div>
+    </div>
+}
 <section id="sectionLobby">
     <div class="container">
         <div class="row">
@@ -17,107 +34,33 @@
     <div class="container linksArtigos">
         <h2 id="tituloLer">Artigos.</h2>
         <div class="row arti">
-            <div class="col-md-4">
-                <div class="card">
-                    <div class="card-body">
-                        <h5 class="card-title">Governança de TI</h5>
-                        <p class="card-text">
-                            Alinhamento estratégico e Compliance de TI.
-                        </p>
-                        <a href="zPresEagil.html" class="btn btn-outline-dark ler">Leia!</a>
+            @if (Model.Any() || Model.Count != 0) {
+                foreach (var item in Model) {
+                    <div class="col-md-6">
+                        <div class="card">
+                            <div class="card-body">
+                                <h5 class="card-title">@item.ReturnCategoria()</h5>
+                                <p class="card-text">
+                                    @item.SubTitulo
+                                </p>
+                                <a asp-action="Artigo" asp-controller="LerArtigos" asp-route-id="@item.Id" class="btn btn-outline-dark ler">Leia!</a>
+                            </div>
+                        </div>
+                    </div>
+                }
+            }
+            else {
+                <div class="col-md-12">
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title" style="text-align: center;">Buses Control</h5>
+                            <p class="card-text" style="text-align: center;">
+                               Nenhum artigo adicionado, adicione seu artigo para que as pessoas possam ler e aprender!
+                            </p>
+                        </div>
                     </div>
                 </div>
-            </div>
-            <div class="col-md-4">
-                <div class="card">
-                    <div class="card-body">
-                        <h5 class="card-title">
-                            Governança de TI
-                        </h5>
-                        <p class="card-text">
-                            Certificações ITIL. Quais seus níveis e como conseguir uma?
-                        </p>
-                        <a href="zItil.html" class="btn btn-outline-dark ler">Leia!</a>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-4">
-                <div class="card">
-                    <div class="card-body">
-                        <h5 class="card-title">Redes de computadores</h5>
-                        <p class="card-text">
-                            História das redes de computadores com a guerra fria.
-                        </p>
-                        <a href="zHistoriaComp.html" class="btn btn-outline-dark ler">Leia!</a>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-4">
-                <div class="card">
-                    <div class="card-body">
-                        <h5 class="card-title">Redes de computadores</h5>
-                        <p class="card-text">
-                            Relação entre o modelo TCP e UDP.
-                        </p>
-                        <a href="zTcpUdp.html" class="btn btn-outline-dark ler">Leia!</a>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-4">
-                <div class="card">
-                    <div class="card-body">
-                        <h5 class="card-title">Engenharia de software</h5>
-                        <p class="card-text">
-                            metódos prescritivos VS metologias Àgeis.
-                        </p>
-                        <a href="zPresEagil.html" class="btn btn-outline-dark ler">Leia!</a>
-                    </div>
-                </div>
-            </div>
-            <div class="col-sm-4">
-                <div class="card">
-                    <div class="card-body">
-                        <h5 class="card-title">Engenharia de software</h5>
-                        <p class="card-text">
-                            Visão sobre a gerência de configuração.
-                        </p>
-                        <a href="zGerencia.html" class="btn btn-outline-dark ler">Leia!</a>
-                    </div>
-                </div>
-            </div>
-            <div class="col-sm-4">
-                <div class="card">
-                    <div class="card-body">
-                        <h5 class="card-title">Engenharia de software</h5>
-                        <p class="card-text">
-                            Opinião sobre a ética na TI..
-                        </p>
-                        <a href="zEtica.html" class="btn btn-outline-dark ler">Leia!</a>
-                    </div>
-                </div>
-            </div>
-            <div class="col-sm-4">
-                <div class="card">
-                    <div class="card-body">
-                        <h5 class="card-title">Engenharia de software</h5>
-                        <p class="card-text">
-                            Opinião sobre a ética na TI..
-                        </p>
-                        <a href="zEtica.html" class="btn btn-outline-dark ler">Leia!</a>
-                    </div>
-                </div>
-            </div>
-            <div class="col-sm-4">
-                <div class="card">
-                    <div class="card-body">
-                        <h5 class="card-title">Engenharia de software</h5>
-                        <p class="card-text">
-                            Opinião sobre a ética na TI..
-                        </p>
-                        <a href="zEtica.html" class="btn btn-outline-dark ler">Leia!</a>
-                    </div>
-                </div>
-            </div>
+            }
         </div>
     </div>
 </section>

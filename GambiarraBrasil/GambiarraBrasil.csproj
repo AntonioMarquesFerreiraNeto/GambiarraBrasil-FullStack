@@ -5,6 +5,31 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="Migrations\**" />
+    <Content Remove="Migrations\**" />
+    <EmbeddedResource Remove="Migrations\**" />
+    <None Remove="Migrations\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Remove="Views\AdicionarArtigo\NovoArtigo.cshtml" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Include="Migrations\20230322194908_First Join.cs" />
+    <Compile Include="Migrations\20230322194908_First Join.Designer.cs" />
+    <Compile Include="Migrations\20230322195728_First to Join.cs" />
+    <Compile Include="Migrations\20230322195728_First to Join.Designer.cs" />
+    <Compile Include="Migrations\20230322203738_First t Join.cs" />
+    <Compile Include="Migrations\20230322203738_First t Join.Designer.cs" />
+    <Compile Include="Migrations\20230322204114_First 2 Join.cs" />
+    <Compile Include="Migrations\20230322204114_First 2 Join.Designer.cs" />
+    <Compile Include="Migrations\20230323184545_Data de publicação.cs" />
+    <Compile Include="Migrations\20230323184545_Data de publicação.Designer.cs" />
+    <Compile Include="Migrations\BancoContextModelSnapshot.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="Microsoft.AspNet.WebPages" Version="3.2.9" />
     <PackageReference Include="Microsoft.EntityFrameworkCore" Version="3.1.25" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="3.1.25">

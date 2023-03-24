@@ -18,6 +18,7 @@ namespace GambiarraBrasil.Controllers {
         }
 
         public IActionResult Index() {
+            ViewData["Title"] = "Logar";
             if (_section.buscarSectionUser() != null) {
                 TempData["Erro"] = "Ops, tentou sair pela URL!";
                 return RedirectToAction("Index", "Home");
