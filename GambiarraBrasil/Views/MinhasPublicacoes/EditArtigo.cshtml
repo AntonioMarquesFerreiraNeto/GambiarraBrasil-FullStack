@@ -1,6 +1,7 @@
 ﻿@{
     Layout = "_LayoutNoConection";
 }
+@model Artigo
 <link rel="stylesheet" href="~/_css/estiloGlobal.css">
 @if (TempData["Erro"] != null) {
     <div class="container-center">
@@ -18,7 +19,6 @@ else if (TempData["Sucesso"] != null) {
         </div>
     </div>
 }
-@model Artigo
 <link rel="stylesheet" href="~/_css/artigoAdd.css">
 <link rel="stylesheet" href="~/_css/index.css">
 <section id="InformationAndRegistre">
@@ -28,11 +28,12 @@ else if (TempData["Sucesso"] != null) {
                 <div class="orientation">
                     <div class="card">
                         <div class="card-header">
-                            <h3 style="text-align: center;">Novo artigo - @Model.Usuario.Name</h3>
+                            <h3 style="text-align: center;">Editar artigo - @Model.Usuario.Name</h3>
                         </div>
                         <div class="card-body">
-                            <form asp-action="ArtigoAdd" asp-controller="AdicionarArtigo" method="post" class="row">  
+                            <form asp-action="EditArtigo" asp-controller="MinhasPublicacoes" method="post" class="row">
                                 <input type="hidden" asp-for="Usuario.Id">
+                                <input type="hidden" asp-for="Id">
                                 <div class="input-group form-group col-md-6">
                                     <div class="input-group-prepend">
                                         <span class="input-group-text"><i class="fas fa-user"></i></span>
@@ -137,7 +138,7 @@ else if (TempData["Sucesso"] != null) {
                                     <div class="input-group-prepend">
                                         <span class="input-group-text"><i class="fa-sharp fa-solid fa-file-pen"></i></span>
                                     </div>
-                                    <textarea type="text" class="form-control" id="inputRota" rows="6" 
+                                    <textarea type="text" class="form-control" id="inputRota" rows="6"
                                               placeholder="Copia e cola seu artigo/monografia, redação e assim por diante neste local." maxlength="10355" asp-for="Conteudo"></textarea>
                                     <div class="position-text">
                                         <small>
@@ -146,8 +147,8 @@ else if (TempData["Sucesso"] != null) {
                                     </div>
                                 </div>
                                 <div class="form-group container-botoes col-md-12">
-                                    <a class="btn float-right voltar-btn" asp-action="Index" asp-controller="AdicionarArtigo">Voltar</a>
-                                    <input type="submit" value="Adicionar" class="btn login_btn">
+                                    <a class="btn float-right voltar-btn" asp-action="Index" asp-controller="MinhasPublicacoes">Voltar</a>
+                                    <input type="submit" value="Editar" class="btn login_btn">
                                 </div>
                             </form>
                         </div>

@@ -29,7 +29,7 @@ namespace GambiarraBrasil.Repositorio {
                 artigo.Trim();
                 artigo.Usuario = _bancoContext.Usuario.FirstOrDefault(x => x.Id == artigo.Usuario.Id);
                 artigo.DataPublication = DateTime.Now.Date;
-                if (ValidarDuplicateTitle(artigo.Titulo)) throw new Exception("Este título já foi usado em outro conteúdo!");
+                if (ValidarDuplicateTitle(artigo)) throw new Exception("Desculpe, alguns dos dados registrados já foram registrados no sistema!");
                 _bancoContext.Artigo.Add(artigo);
                 _bancoContext.SaveChanges();
                 return artigo;
@@ -39,6 +39,28 @@ namespace GambiarraBrasil.Repositorio {
             }
         }
 
+        public Artigo EditarArtigo(Artigo artigo) {
+            try {
+                Artigo artigoDB = _bancoContext.Artigo.FirstOrDefault(x => x.Id == artigo.Id);
+                if (artigoDB == null) throw new Exception("Desculpe, artigo não encontrado!");
+                if (ValidarDuplicateTitleEdit(artigo)) throw new Exception("Desculpe, alguns dos dados registrados já foram registrados no sistema!");
+                artigo.Trim();
+                artigoDB.Titulo = artigo.Titulo;
+                artigoDB.SubTitulo = artigo.SubTitulo;
+                artigoDB.CategoriaArtigo = artigo.CategoriaArtigo;
+                artigoDB.Conteudo = artigo.Conteudo;
+                artigoDB.Type = artigo.Type;
+                artigoDB.Universidade = artigo.Universidade;
+                _bancoContext.Artigo.Update(artigoDB);
+                _bancoContext.SaveChanges();
+                return artigoDB;
+            }
+            catch (Exception error) {
+                throw new Exception(error.Message);
+            }
+        }
+
+
         public Artigo Trim(Artigo artigo) {
             artigo.Titulo = artigo.Titulo.Trim();
             artigo.SubTitulo = artigo.SubTitulo.Trim();
@@ -46,18 +68,33 @@ namespace GambiarraBrasil.Repositorio {
             artigo.Conteudo = artigo.Conteudo.Trim();
             return artigo;
         }
-        public bool ValidarDuplicateTitle(string title) {
-            if (_bancoContext.Artigo.Any(x => x.Titulo == title)) {
+        public bool ValidarDuplicateTitle(Artigo artigo) {
+            if (_bancoContext.Artigo.Any(x => x.Titulo == artigo.Titulo)) {
                 return true;
             }
             else {
                 return false;
             }
         }
+        public bool ValidarDuplicateTitleEdit(Artigo artigo) {
+            Artigo artigoDB = _bancoContext.Artigo.FirstOrDefault(x => x.Id == artigo.Id);
+            if (_bancoContext.Artigo.Any(x => x.Titulo == artigo.Titulo && x.Titulo != artigoDB.Titulo)) {
+                return true;
+            } 
+            return false;
+        }
 
-        public bool ValidarDuplicateTitleEdit(string title) {
-            //Inserir as instruções de validação de duplicatas que estão sendo editadas neste local. 
-            return true;
+        public Artigo Excluir(Artigo artigo) {
+            try {
+                Artigo artigoDB = _bancoContext.Artigo.FirstOrDefault(x => x.Id == artigo.Id);
+                if (artigoDB == null) throw new Exception("Desculpe, artigo não foi encontrado!");
+                _bancoContext.Artigo.Remove(artigoDB);
+                _bancoContext.SaveChanges();
+                return artigoDB;
+            }
+            catch (Exception error) {
+                throw new Exception(error.Message);
+            }
         }
     }
 }

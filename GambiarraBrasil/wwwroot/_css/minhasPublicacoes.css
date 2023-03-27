@@ -68,6 +68,7 @@ h1.animation::after {
     background-color: transparent;
     border-color: green;
 }
+
     .ler:hover {
         color: white;
         border-color: green;
@@ -79,6 +80,7 @@ h1.animation::after {
     background-color: transparent;
     border-color: blueviolet;
 }
+
     .editar:hover {
         color: white;
         border-color: blueviolet;
@@ -90,6 +92,7 @@ h1.animation::after {
     background-color: transparent;
     border-color: red;
 }
+
     .excluir:hover {
         color: white;
         border-color: red;
@@ -100,6 +103,62 @@ h1.animation::after {
     display: flex;
     justify-content: flex-end;
 }
+.modal-position {
+    display: flex;
+    justify-content: center;
+    align-content: center;
+}
+.modal-content{
+    max-width: 410px;
+}
+
+.modal-header {
+    background-color: rgb(255, 255, 255);
+    color: rgb(108, 108, 108);
+    font-family: Arial, sans-serif;
+}
+
+.modal-title {
+    font-size: 13pt;
+    font-synthesis-weight: unset;
+}
+.modal-body {
+    font-family: Arial, sans-serif;
+    font-size: 11pt;
+    color: rgb(108, 108, 108);
+}
+
+.modal-footer {
+    display: flex;
+    justify-content: space-between;
+}
+
+.btn-modais {
+    margin-left: 2px;
+    margin-right: 2px;
+    font-size: 9pt;
+    min-width: 120px;
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+.voltar-button {
+    background-color: orangered;
+    color: white;
+}
+
+    .voltar-button:hover {
+        background-color: darkred;
+    }
+
+.sim-button {
+    background-color: blueviolet;
+    color: white;
+}
+
+    .sim-button:hover {
+        background-color: #3e0078;
+    }
 
 @media(max-width: 768px) {
     .ler {

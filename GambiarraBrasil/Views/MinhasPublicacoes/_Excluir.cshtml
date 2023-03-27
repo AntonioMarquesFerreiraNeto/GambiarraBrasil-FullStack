@@ -1,0 +1,22 @@
+﻿@model Artigo
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css" crossorigin="anonymous">
+<form asp-action="ExcluirArtigo" asp-controller="MinhasPublicacoes" method="post" style="margin: 0; padding: 0;">
+    <input type="hidden" asp-for="Id">
+    <div class="modal-position">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Exclusão - @Model.Titulo</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                Deseja realmente excluir o artigo? Lembre-se que de ter certeza ao executar tais ações!
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-modais voltar-button" data-dismiss="modal">Não</button>
+                <button type="submit" class="btn btn-modais sim-button">Sim</button>
+            </div>
+        </div>
+    </div>
+</form>

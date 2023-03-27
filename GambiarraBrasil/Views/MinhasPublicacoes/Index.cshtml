@@ -21,7 +21,7 @@ else if (TempData["Sucesso"] != null) {
         <div class="row">
             <div class="col-md-12 capa">
                 <h1 class="animation">
-                    Olá, @Model.Name, logo abaixo você
+                    Olá, @Model.Name! Logo abaixo você
                     pode
                     gerenciar suas publicações postadas no sistema!
                 </h1>
@@ -43,9 +43,9 @@ else if (TempData["Sucesso"] != null) {
                                     @item.SubTitulo
                                 </p>
                                 <div class="container-position">
-                                    <a asp-action="Artigo" asp-controller="LerArtigos" asp-route-id="@item.Id" class="btn btn-outline-dark botoes editar"><i class="fa fa-edit"></i> Editar</a>
+                                    <a asp-action="EditArtigo" asp-controller="MinhasPublicacoes" asp-route-id="@item.Id" class="btn btn-outline-dark botoes editar"><i class="fa fa-edit"></i> Editar</a>
                                     <a asp-action="Artigo" asp-controller="LerArtigos" asp-route-id="@item.Id" class="btn btn-outline-dark botoes ler"><i class="fa fa-file"></i> Visualisar</a>
-                                    <a asp-action="Artigo" asp-controller="LerArtigos" asp-route-id="@item.Id" class="btn btn-outline-dark botoes excluir"><i class="fa fa-trash"></i> Excluir</a>
+                                    <a href="#" data-toggle="modal" data-target="#dropArtigo" artigo-id="@item.Id" class="btn btn-outline-dark botoes excluir click-drop"><i class="fa fa-trash"></i> Excluir</a>
                                 </div>
                             </div>
                         </div>
@@ -56,7 +56,7 @@ else if (TempData["Sucesso"] != null) {
                 <div class="col-md-12">
                     <div class="card">
                         <div class="card-body">
-                            <h5 class="card-title" style="text-align: center;">Buses Control</h5>
+                            <h5 class="card-title" style="text-align: center;">Gambiarra Brasil</h5>
                             <p class="card-text" style="text-align: center;">
                                 Desculpe, você ainda não postou nenhum documento!
                             </p>
@@ -67,3 +67,13 @@ else if (TempData["Sucesso"] != null) {
         </div>
     </div>
 </section>
+
+<!-- Modal -->
+<div class="modal fade" id="dropArtigo" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" id="modal-drop">
+       <!--A partial View será redenrizada de maneira assíncrona neste local.-->
+    </div>
+</div>
+
+<script src="js/jquery.min.js"></script>
+<script src="~/js/dropArtigo.js"></script>

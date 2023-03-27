@@ -38,7 +38,7 @@ namespace GambiarraBrasil.Controllers {
                     _artigoIRepositorio.NovoArtigo(artigo);
                     return View(artigo);
                 }
-                TempData["Erro"] = "Informe os campos obrigatórios!";
+                TempData["Erro"] = "Ops, observe os campos para saber o problema!";
                 return View(artigo);
             }
             catch (Exception error) {
