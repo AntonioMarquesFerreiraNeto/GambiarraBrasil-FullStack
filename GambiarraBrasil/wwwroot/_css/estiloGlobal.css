@@ -15,6 +15,7 @@
     text-align: center;
     font-size: 11pt;
     font-style: italic;
+    z-index: 1;
 }
 .close-alert {
     position: absolute;

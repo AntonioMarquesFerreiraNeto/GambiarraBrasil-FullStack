@@ -8,16 +8,15 @@ namespace GambiarraBrasil.Models {
 
         public int Id { get; set; }
 
-        
+        [Required (ErrorMessage = "Campo obrigatório!")]
         public string Name { get; set; }
 
-      
+        [Required(ErrorMessage = "Campo obrigatório!")]
         public string Email { get; set; }
 
-        
+        [Required(ErrorMessage = "Campo obrigatório!")]
         public string Phone { get; set; }
 
-       
         public string SenhaUser { get; set; }
 
         public void CriptografarSenha() {

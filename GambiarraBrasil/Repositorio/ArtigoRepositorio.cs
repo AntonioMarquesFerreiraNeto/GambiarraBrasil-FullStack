@@ -43,7 +43,7 @@ namespace GambiarraBrasil.Repositorio {
             try {
                 Artigo artigoDB = _bancoContext.Artigo.FirstOrDefault(x => x.Id == artigo.Id);
                 if (artigoDB == null) throw new Exception("Desculpe, artigo não encontrado!");
-                if (ValidarDuplicateTitleEdit(artigo)) throw new Exception("Desculpe, alguns dos dados registrados já foram registrados no sistema!");
+                if (ValidarDuplicateTitleEdit(artigo, artigoDB)) throw new Exception("Desculpe, alguns dos dados registrados já foram registrados no sistema!");
                 artigo.Trim();
                 artigoDB.Titulo = artigo.Titulo;
                 artigoDB.SubTitulo = artigo.SubTitulo;
@@ -76,8 +76,7 @@ namespace GambiarraBrasil.Repositorio {
                 return false;
             }
         }
-        public bool ValidarDuplicateTitleEdit(Artigo artigo) {
-            Artigo artigoDB = _bancoContext.Artigo.FirstOrDefault(x => x.Id == artigo.Id);
+        public bool ValidarDuplicateTitleEdit(Artigo artigo, Artigo artigoDB) {
             if (_bancoContext.Artigo.Any(x => x.Titulo == artigo.Titulo && x.Titulo != artigoDB.Titulo)) {
                 return true;
             } 

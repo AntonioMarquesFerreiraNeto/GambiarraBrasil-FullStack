@@ -34,6 +34,7 @@ else if (TempData["Sucesso"] != null) {
                             <form asp-action="EditArtigo" asp-controller="MinhasPublicacoes" method="post" class="row">
                                 <input type="hidden" asp-for="Usuario.Id">
                                 <input type="hidden" asp-for="Id">
+                                <input type="hidden" asp-for="Usuario.Phone">
                                 <div class="input-group form-group col-md-6">
                                     <div class="input-group-prepend">
                                         <span class="input-group-text"><i class="fas fa-user"></i></span>
@@ -138,7 +139,7 @@ else if (TempData["Sucesso"] != null) {
                                     <div class="input-group-prepend">
                                         <span class="input-group-text"><i class="fa-sharp fa-solid fa-file-pen"></i></span>
                                     </div>
-                                    <textarea type="text" class="form-control" id="inputRota" rows="6"
+                                    <textarea type="text" class="form-control" id="inputRota" rows="5"
                                               placeholder="Copia e cola seu artigo/monografia, redação e assim por diante neste local." maxlength="10355" asp-for="Conteudo"></textarea>
                                     <div class="position-text">
                                         <small>

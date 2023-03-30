@@ -79,3 +79,5 @@ C:\Users\anton\source\repos\GambiarraBrasil\GambiarraBrasil\obj\Debug\netcoreapp
 C:\Users\anton\source\repos\GambiarraBrasil\GambiarraBrasil\obj\Debug\netcoreapp3.1\Razor\Views\MinhasPublicacoes\Index.cshtml.g.cs
 C:\Users\anton\source\repos\GambiarraBrasil\GambiarraBrasil\obj\Debug\netcoreapp3.1\Razor\Views\MinhasPublicacoes\EditArtigo.cshtml.g.cs
 C:\Users\anton\source\repos\GambiarraBrasil\GambiarraBrasil\obj\Debug\netcoreapp3.1\Razor\Views\MinhasPublicacoes\_Excluir.cshtml.g.cs
+C:\Users\anton\source\repos\GambiarraBrasil\GambiarraBrasil\obj\Debug\netcoreapp3.1\Razor\Views\Usuario\Index.cshtml.g.cs
+C:\Users\anton\source\repos\GambiarraBrasil\GambiarraBrasil\obj\Debug\netcoreapp3.1\Razor\Views\Usuario\_EditSenha.cshtml.g.cs

@@ -32,6 +32,7 @@ namespace GambiarraBrasil.Controllers {
 
         [HttpPost]
         public IActionResult ArtigoAdd(Artigo artigo) {
+            ViewData["Title"] = "Novo artigo";
             try {
                 if (ModelState.IsValid) {
                     TempData["Sucesso"] = "Adicionado com sucesso!";

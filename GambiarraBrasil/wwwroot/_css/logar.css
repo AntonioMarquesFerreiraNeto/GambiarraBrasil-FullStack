@@ -1,7 +1,7 @@
 @charset  "UTF-8";
 @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;1,100;1,200;1,300;1,400&display=swap');
 #InformationAndLogin{
-    margin-bottom: 120px;
+    margin-bottom: 30px;
 }
 .error-message small {
     position: absolute;
@@ -11,7 +11,7 @@
     color: rgb(255, 94, 0);
 }
 .card {
-    height: 370px;
+    height: 360px;
     margin-top: auto;
     margin-bottom: auto;
     padding: 10px;
@@ -48,7 +48,9 @@ input:focus {
 .login_btn {
     color: #ffffff;
     background-color: #0d00ff;
-    width: 100px;
+    width: 110px;
+    font-size: 10pt;
+    font-weight: bold;
     transition: 0.4s;
 }
 .login_btn:hover {
@@ -63,7 +65,7 @@ input:focus {
 }
 @media (min-width: 100px) {
     .card1 {
-        height: 370px;
+        height: 360px;
         margin-top: auto;
         margin-bottom: 40px;
         padding: 10px;
@@ -122,7 +124,7 @@ input:focus {
 
 @media (min-width: 768px) {
     .card1 {
-        height: 370px;
+        height: 360px;
         margin-top: auto;
         margin-bottom: auto;
         margin-right: 20px;
@@ -137,7 +139,7 @@ input:focus {
 
 @media (min-width: 902px) {
     .card1 {
-        height: 370px;
+        height: 360px;
         margin-top: auto;
         margin-bottom: auto;
         padding: 10px;

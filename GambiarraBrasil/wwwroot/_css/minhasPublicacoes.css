@@ -119,12 +119,13 @@ h1.animation::after {
 }
 
 .modal-title {
-    font-size: 13pt;
+    font-size: 11pt;
+    font-weight: bold;
     font-synthesis-weight: unset;
 }
 .modal-body {
     font-family: Arial, sans-serif;
-    font-size: 11pt;
+    font-size: 10pt;
     color: rgb(108, 108, 108);
 }
 
@@ -148,7 +149,7 @@ h1.animation::after {
 }
 
     .voltar-button:hover {
-        background-color: darkred;
+        background-color: #c43500;
     }
 
 .sim-button {

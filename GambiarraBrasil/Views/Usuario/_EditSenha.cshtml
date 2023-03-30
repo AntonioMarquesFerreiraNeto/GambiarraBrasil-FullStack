@@ -1,0 +1,43 @@
+﻿@model MudarSenha
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css" crossorigin="anonymous">
+<link rel="stylesheet" href="~/_css/modalEditSenha.css">
+<form asp-action="MudarSenha" asp-controller="Usuario" method="post" style="margin: 0; padding: 0;">
+    <input type="hidden" asp-for="Id">
+    <div class="modal-position">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Nova senha</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="input-group form-group">
+                    <div class="input-group-prepend modal-span">
+                        <span class="input-group-text"><i class="fas fa-key"></i></span>
+                    </div>
+                    <input type="password" class="form-control modal-span" placeholder="Informe sua senha atual." asp-for="SenhaAtual" id="senha">
+                </div>
+                <div class="input-group form-group">
+                    <div class="input-group-prepend modal-span">
+                        <span class="input-group-text"><i class="fas fa-key"></i></span>
+                    </div>
+                    <input type="password" class="form-control modal-span" placeholder="Informe sua nova senha." asp-for="NovaSenha" id="novasenha">
+                </div>
+                <div class="input-group form-group">
+                    <div class="input-group-prepend modal-span">
+                        <span class="input-group-text"><i class="fas fa-key"></i></span>
+                    </div>
+                    <input type="password" class="form-control modal-span" placeholder="Confirme sua nova senha." asp-for="ConfirmarSenha" id="confirmarSenha">
+                </div>
+                <div class="row align-items-center remember" style="font-size: 10pt; color: black;">
+                    <input type="checkbox" id="mascara-senha" onclick="MostrarPassWord()">Mostrar senhas
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-modais voltar-modal" data-dismiss="modal">Fechar</button>
+                <button type="submit" class="btn btn-modais sim-button">Salvar</button>
+            </div>
+        </div>
+    </div>
+</form>

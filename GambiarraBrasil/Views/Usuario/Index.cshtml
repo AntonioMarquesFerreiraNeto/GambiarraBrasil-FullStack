@@ -1,0 +1,96 @@
+﻿@{
+    Layout = "_LayoutNoConection";
+}
+@model Usuario
+<link rel="stylesheet" href="~/_css/estiloGlobal.css">
+<link rel="stylesheet" href="~/_css/editUser.css">
+<link rel="stylesheet" href="~/_css/index.css">
+@if (TempData["Erro"] != null) {
+    <div class="container-center">
+        <div class="alert alert-danger" role="alert">
+            @TempData["Erro"]
+            <button type="button" class="btn btn-danger btn-sm close-alert error" aria-label="Close"><i class="fa fa-xmark"></i></button>
+        </div>
+    </div>
+}
+else if (TempData["Sucesso"] != null) {
+    <div class="container-center">
+        <div class="alert alert-success" role="alert">
+            @TempData["Sucesso"]
+            <button type="button" class="btn btn-danger btn-sm close-alert sucesso" aria-label="Close"><i class="fa fa-xmark"></i></button>
+        </div>
+    </div>
+}
+<section id="InformationAndRegistre">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="orientation">
+                    <div class="card">
+                        <div class="card-header">
+                            <h3 style="text-align: center;">Editar usuário - @Model.Name</h3>
+                        </div>
+                        <div class="card-body">
+                            <form asp-action="Index" asp-controller="Usuario" method="post" class="row">
+                                <input type="hidden" asp-for="Id">
+                                <div class="input-group form-group col-md-12">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text"><i class="fas fa-user"></i></span>
+                                    </div>
+                                    <input type="text" class="form-control" asp-for="Name">
+                                    <div class="error-message">
+                                        <small>
+                                            @Html.ValidationMessageFor(x => x.Name)
+                                        </small>
+                                    </div>
+                                </div>
+                                <div class="input-group form-group col-md-12">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text"><i class="fas fa-phone"></i></span>
+                                    </div>
+                                    <input type="tel" class="form-control" placeholder="Informe seu telefone." asp-for="Phone">
+                                    <div class="error-message">
+                                        <small>
+                                            @Html.ValidationMessageFor(x => x.Phone)
+                                        </small>
+                                    </div>
+                                </div>
+                                <div class="input-group form-group col-md-12">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text"><i class="fas fa-envelope"></i></span>
+                                    </div>
+                                    <input type="text" class="form-control" asp-for="Email">
+                                    <div class="error-message">
+                                        <small>
+                                            @Html.ValidationMessageFor(x => x.Email)
+                                        </small>
+                                    </div>
+                                </div>
+                                <div class="form-group col-md-12">
+                                    <a class="btn senha-btn click-senha" href="#" data-toggle="modal" data-target="#editSenha"><i class="fa fa-key"></i> Alterar senha</a>
+                                </div>
+                                <br>
+                                <div class="form-group container-botoes col-md-12">
+                                    <a class="btn float-right voltar-btn" asp-action="Index" asp-controller="Home">Voltar</a>
+                                    <input type="submit" value="Editar" class="btn login_btn">
+                                </div>
+                            </form>
+                        </div>
+                        <div class="card-footer">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- Modal -->
+<div class="modal fade" id="editSenha" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" id="modal-senha">
+        <!--A partial View será redenrizada de maneira assíncrona neste local.-->
+    </div>
+</div>
+
+<script src="~/js/jquery.min.js"></script>
+<script src="~/js/Rotinas do front-end.js"></script>
+<script src="~/js/editSenha.js"></script>
