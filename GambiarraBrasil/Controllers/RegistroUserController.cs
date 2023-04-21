@@ -27,6 +27,7 @@ namespace GambiarraBrasil.Controllers {
 
         [HttpPost]
         public IActionResult Index(RegistroUser user) {
+            ViewData["Title"] = "Novo usuário";
             try {
                 if (ModelState.IsValid) {
                     if (user.SenhaUser.Trim() != user.ConfirmarSenha.Trim()) {

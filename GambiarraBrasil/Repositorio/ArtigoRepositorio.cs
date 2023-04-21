@@ -29,7 +29,7 @@ namespace GambiarraBrasil.Repositorio {
                 artigo.Trim();
                 artigo.Usuario = _bancoContext.Usuario.FirstOrDefault(x => x.Id == artigo.Usuario.Id);
                 artigo.DataPublication = DateTime.Now.Date;
-                if (ValidarDuplicateTitle(artigo)) throw new Exception("Desculpe, alguns dos dados registrados já foram registrados no sistema!");
+                if (ValidarDuplicateTitle(artigo)) throw new Exception("Desculpe, alguns dos dados já foram registrados no sistema!");
                 _bancoContext.Artigo.Add(artigo);
                 _bancoContext.SaveChanges();
                 return artigo;
@@ -43,7 +43,7 @@ namespace GambiarraBrasil.Repositorio {
             try {
                 Artigo artigoDB = _bancoContext.Artigo.FirstOrDefault(x => x.Id == artigo.Id);
                 if (artigoDB == null) throw new Exception("Desculpe, artigo não encontrado!");
-                if (ValidarDuplicateTitleEdit(artigo, artigoDB)) throw new Exception("Desculpe, alguns dos dados registrados já foram registrados no sistema!");
+                if (ValidarDuplicateTitleEdit(artigo, artigoDB)) throw new Exception("Desculpe, alguns dos dados já foram registrados no sistema!");
                 artigo.Trim();
                 artigoDB.Titulo = artigo.Titulo;
                 artigoDB.SubTitulo = artigo.SubTitulo;

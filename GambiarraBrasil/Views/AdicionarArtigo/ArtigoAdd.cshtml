@@ -26,135 +26,137 @@ else if (TempData["Sucesso"] != null) {
         <div class="row">
             <div class="col-md-12">
                 <div class="orientation">
-                    <div class="card">
-                        <div class="card-header">
-                            <h3 style="text-align: center;">Novo artigo - @Model.Usuario.Name</h3>
+                    @if (Model != null) {
+                        <div class="card">
+                            <div class="card-header">
+                                <h3 style="text-align: center;">Novo artigo - <span style="color: cornflowerblue;">@Model.Usuario.Name</span></h3>
+                            </div>
+                            <div class="card-body">
+                                <form asp-action="ArtigoAdd" asp-controller="AdicionarArtigo" method="post" class="row">
+                                    <input type="hidden" asp-for="Usuario.Id">
+                                    <input type="hidden" asp-for="Usuario.Phone">
+                                    <div class="input-group form-group col-md-6">
+                                        <div class="input-group-prepend">
+                                            <span class="input-group-text"><i class="fas fa-user"></i></span>
+                                        </div>
+                                        <input type="text" class="form-control" readonly asp-for="Usuario.Name">
+                                        <div class="error-message">
+                                            <small>
+                                                @Html.ValidationMessageFor(x => x.Usuario.Name)
+                                            </small>
+                                        </div>
+                                    </div>
+                                    <div class="input-group form-group col-md-6">
+                                        <div class="input-group-prepend">
+                                            <span class="input-group-text"><i class="fas fa-envelope"></i></span>
+                                        </div>
+                                        <input type="text" class="form-control" asp-for="Usuario.Email" readonly>
+                                        <div class="error-message">
+                                            <small>
+                                                @Html.ValidationMessageFor(x => x.Usuario.Email)
+                                            </small>
+                                        </div>
+                                    </div>
+                                    <div class="input-group form-group col-md-12">
+                                        <div class="input-group-prepend">
+                                            <span class="input-group-text"><i class="fa-sharp fa-solid fa-school"></i></span>
+                                        </div>
+                                        <input type="text" class="form-control" placeholder="Informe sua instituição de ensino." asp-for="Universidade">
+                                        <div class="error-message">
+                                            <small>
+                                                @Html.ValidationMessageFor(x => x.Universidade)
+                                            </small>
+                                        </div>
+                                    </div>
+                                    <div class="input-group form-group col-md-6">
+                                        <div class="input-group-prepend">
+                                            <span class="input-group-text"><i class="fa-solid fa-bars-progress"></i></span>
+                                        </div>
+                                        <select id="inputEstado" class="form-control" asp-for="CategoriaArtigo">
+                                            <optgroup label="Principais áreas da TI">
+                                                <option value="0">Banco de Dados</option>
+                                                <option value="1">Computação em nuvem</option>
+                                                <option value="2">Desenvolvimento WEB</option>
+                                                <option value="3">Desenvolvimento desktop</option>
+                                                <option value="4">Desenvolvimento mobile</option>
+                                                <option value="5">Engenharia de software</option>
+                                                <option value="6">Engenharia de requisitos</option>
+                                                <option value="7"> E-commerce</option>
+                                                <option value="8">Governança de TI</option>
+                                                <option value="9">Infraestrutura de TI</option>
+                                                <option value="10">Redes de computadores</option>
+                                                <option value="11">Segurança da informação</option>
+                                                <option value="12">Suporte técnico</option>
+                                                <option value="13">Inteligência artificial</option>
+                                            </optgroup>
+                                        </select>
+                                        <div class="error-message">
+                                            <small>@Html.ValidationMessageFor(x => x.CategoriaArtigo)</small>
+                                        </div>
+                                    </div>
+                                    <div class="input-group form-group col-md-6">
+                                        <div class="input-group-prepend">
+                                            <span class="input-group-text"><i class="fa-solid fa-bars-progress"></i></span>
+                                        </div>
+                                        <select id="inputEstado" class="form-control" asp-for="Type">
+                                            <optgroup label="Tipo de trabalho acadêmico">
+                                                <option value="0">Artigo científico</option>
+                                                <option value="1">Resumo</option>
+                                                <option value="2">Relatório</option>
+                                                <option value="3">Monografia</option>
+                                                <option value="4">Resenha</option>
+                                                <option value="5">Fichamento</option>
+                                                <option value="6">Redação</option>
+                                            </optgroup>
+                                        </select>
+                                        <div class="error-message">
+                                            <small>@Html.ValidationMessageFor(x => x.Type)</small>
+                                        </div>
+                                    </div>
+                                    <div class="input-group form-group col-md-6">
+                                        <div class="input-group-prepend">
+                                            <span class="input-group-text"><i class="fa-solid fa-text-height"></i></span>
+                                        </div>
+                                        <input type="text" class="form-control" placeholder="Informe o título." asp-for="Titulo">
+                                        <div class="error-message">
+                                            <small>
+                                                @Html.ValidationMessageFor(x => x.Titulo)
+                                            </small>
+                                        </div>
+                                    </div>
+                                    <div class="input-group form-group col-md-6">
+                                        <div class="input-group-prepend">
+                                            <span class="input-group-text"><i class="fa-solid fa-text-height"></i></span>
+                                        </div>
+                                        <input type="text" class="form-control" placeholder="Informe o sub-título ou uma descrição do conteúdo." asp-for="SubTitulo">
+                                        <div class="error-message">
+                                            <small>
+                                                @Html.ValidationMessageFor(x => x.SubTitulo)
+                                            </small>
+                                        </div>
+                                    </div>
+                                    <div class="input-group form-group col-md-12">
+                                        <div class="input-group-prepend">
+                                            <span class="input-group-text"><i class="fa-sharp fa-solid fa-file-pen"></i></span>
+                                        </div>
+                                        <textarea type="text" class="form-control" id="inputRota" rows="5"
+                                                  placeholder="Copia e cola seu artigo/monografia, redação e assim por diante neste local." maxlength="10355" asp-for="Conteudo"></textarea>
+                                        <div class="position-text">
+                                            <small>
+                                                @Html.ValidationMessageFor(x => x.Conteudo)
+                                            </small>
+                                        </div>
+                                    </div>
+                                    <div class="form-group container-botoes col-md-12">
+                                        <a class="btn float-right voltar-btn" asp-action="Index" asp-controller="AdicionarArtigo">Voltar</a>
+                                        <input type="submit" value="Adicionar" class="btn login_btn">
+                                    </div>
+                                </form>
+                            </div>
+                            <div class="card-footer">
+                            </div>
                         </div>
-                        <div class="card-body">
-                            <form asp-action="ArtigoAdd" asp-controller="AdicionarArtigo" method="post" class="row">  
-                                <input type="hidden" asp-for="Usuario.Id">
-                                <input type="hidden" asp-for="Usuario.Phone">
-                                <div class="input-group form-group col-md-6">
-                                    <div class="input-group-prepend">
-                                        <span class="input-group-text"><i class="fas fa-user"></i></span>
-                                    </div>
-                                    <input type="text" class="form-control" readonly asp-for="Usuario.Name">
-                                    <div class="error-message">
-                                        <small>
-                                            @Html.ValidationMessageFor(x => x.Usuario.Name)
-                                        </small>
-                                    </div>
-                                </div>
-                                <div class="input-group form-group col-md-6">
-                                    <div class="input-group-prepend">
-                                        <span class="input-group-text"><i class="fas fa-envelope"></i></span>
-                                    </div>
-                                    <input type="text" class="form-control" asp-for="Usuario.Email" readonly>
-                                    <div class="error-message">
-                                        <small>
-                                            @Html.ValidationMessageFor(x => x.Usuario.Email)
-                                        </small>
-                                    </div>
-                                </div>
-                                <div class="input-group form-group col-md-12">
-                                    <div class="input-group-prepend">
-                                        <span class="input-group-text"><i class="fa-sharp fa-solid fa-school"></i></span>
-                                    </div>
-                                    <input type="text" class="form-control" placeholder="Informe sua instituição de ensino." asp-for="Universidade">
-                                    <div class="error-message">
-                                        <small>
-                                            @Html.ValidationMessageFor(x => x.Universidade)
-                                        </small>
-                                    </div>
-                                </div>
-                                <div class="input-group form-group col-md-6">
-                                    <div class="input-group-prepend">
-                                        <span class="input-group-text"><i class="fa-solid fa-bars-progress"></i></span>
-                                    </div>
-                                    <select id="inputEstado" class="form-control" asp-for="CategoriaArtigo">
-                                        <optgroup label="Principais áreas da TI">
-                                            <option value="0">Banco de Dados</option>
-                                            <option value="1">Computação em nuvem</option>
-                                            <option value="2">Desenvolvimento WEB</option>
-                                            <option value="3">Desenvolvimento desktop</option>
-                                            <option value="4">Desenvolvimento mobile</option>
-                                            <option value="5">Engenharia de software</option>
-                                            <option value="6">Engenharia de requisitos</option>
-                                            <option value="7"> E-commerce</option>
-                                            <option value="8">Governança de TI</option>
-                                            <option value="9">Infraestrutura de TI</option>
-                                            <option value="10">Redes de computadores</option>
-                                            <option value="11">Segurança da informação</option>
-                                            <option value="12">Suporte técnico</option>
-                                            <option value="13">Inteligência artificial</option>
-                                        </optgroup>
-                                    </select>
-                                    <div class="error-message">
-                                        <small>@Html.ValidationMessageFor(x => x.CategoriaArtigo)</small>
-                                    </div>
-                                </div>
-                                <div class="input-group form-group col-md-6">
-                                    <div class="input-group-prepend">
-                                        <span class="input-group-text"><i class="fa-solid fa-bars-progress"></i></span>
-                                    </div>
-                                    <select id="inputEstado" class="form-control" asp-for="Type">
-                                        <optgroup label="Tipo de trabalho acadêmico">
-                                            <option value="0">Artigo científico</option>
-                                            <option value="1">Resumo</option>
-                                            <option value="2">Relatório</option>
-                                            <option value="3">Monografia</option>
-                                            <option value="4">Resenha</option>
-                                            <option value="5">Fichamento</option>
-                                            <option value="6">Redação</option>
-                                        </optgroup>
-                                    </select>
-                                    <div class="error-message">
-                                        <small>@Html.ValidationMessageFor(x => x.Type)</small>
-                                    </div>
-                                </div>
-                                <div class="input-group form-group col-md-6">
-                                    <div class="input-group-prepend">
-                                        <span class="input-group-text"><i class="fa-solid fa-text-height"></i></span>
-                                    </div>
-                                    <input type="tel" class="form-control" placeholder="Informe o título." asp-for="Titulo">
-                                    <div class="error-message">
-                                        <small>
-                                            @Html.ValidationMessageFor(x => x.Titulo)
-                                        </small>
-                                    </div>
-                                </div>
-                                <div class="input-group form-group col-md-6">
-                                    <div class="input-group-prepend">
-                                        <span class="input-group-text"><i class="fa-solid fa-text-height"></i></span>
-                                    </div>
-                                    <input type="tel" class="form-control" placeholder="Informe o sub-título ou uma descrição do conteúdo." asp-for="SubTitulo">
-                                    <div class="error-message">
-                                        <small>
-                                            @Html.ValidationMessageFor(x => x.SubTitulo)
-                                        </small>
-                                    </div>
-                                </div>
-                                <div class="input-group form-group col-md-12">
-                                    <div class="input-group-prepend">
-                                        <span class="input-group-text"><i class="fa-sharp fa-solid fa-file-pen"></i></span>
-                                    </div>
-                                    <textarea type="text" class="form-control" id="inputRota" rows="5" 
-                                              placeholder="Copia e cola seu artigo/monografia, redação e assim por diante neste local." maxlength="10355" asp-for="Conteudo"></textarea>
-                                    <div class="position-text">
-                                        <small>
-                                            @Html.ValidationMessageFor(x => x.Conteudo)
-                                        </small>
-                                    </div>
-                                </div>
-                                <div class="form-group container-botoes col-md-12">
-                                    <a class="btn float-right voltar-btn" asp-action="Index" asp-controller="AdicionarArtigo">Voltar</a>
-                                    <input type="submit" value="Adicionar" class="btn login_btn">
-                                </div>
-                            </form>
-                        </div>
-                        <div class="card-footer">
-                        </div>
-                    </div>
+                    }
                 </div>
             </div>
         </div>

@@ -28,6 +28,7 @@ namespace GambiarraBrasil.Controllers {
 
         [HttpPost]
         public IActionResult Index(Autenticar usuario) {
+            ViewData["Title"] = "Logar";
             try {
                 if (ModelState.IsValid) {
                     Usuario usuarioRetornado = _userRepositorio.ValidarCredenciais(usuario);

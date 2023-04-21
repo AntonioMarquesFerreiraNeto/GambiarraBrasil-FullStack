@@ -24,6 +24,7 @@ namespace GambiarraBrasil.Controllers {
                 return RedirectToAction("Index");
             }
             Artigo artigo  = _artigoRepositorio.ListForIdArtigo(id);
+            ViewData["Title"] = artigo.Titulo;
             return View(artigo);
         }
     }

@@ -16,9 +16,5 @@ namespace GambiarraBrasil.Controllers {
             ViewData["Title"] = "Home";
             return View();
         }
-
-        public IActionResult Privacy() {
-            return View();
-        }
     }
 }
