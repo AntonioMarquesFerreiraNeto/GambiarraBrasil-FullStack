@@ -1,0 +1,86 @@
+﻿@model RedefinirSenha
+@{
+    Layout = "_LayoutNoConection";
+}
+<link rel="stylesheet" href="~/_css/index.css">
+<link rel="stylesheet" href="~/_css/redefinirsenha.css">
+<link rel="stylesheet" href="~/_css/estiloGlobal.css">
+@if (TempData["Erro"] != null) {
+    <div class="container-center">
+        <div class="alert alert-danger" role="alert">
+            @TempData["Erro"]
+            <button type="button" class="btn btn-danger btn-sm close-alert error" aria-label="Close"><i class="fa fa-xmark"></i></button>
+        </div>
+    </div>
+}
+else if (TempData["Sucesso"] != null) {
+    <div class="container-center">
+        <div class="alert alert-success" role="alert">
+            @TempData["Sucesso"]
+            <button type="button" class="btn btn-danger btn-sm close-alert sucesso" aria-label="Close"><i class="fa fa-xmark"></i></button>
+        </div>
+    </div>
+}
+<section id="InformationAndLogin">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="d-flex justify-content-center h-100">
+                    <div class="card">
+                        <div class="card-header">
+                            <h3>Redefinir senha</h3>
+                        </div>
+                        <div class="card-body">
+                            <form asp-action="Index" asp-controller="RedefinirSenha" method="post">
+                                <input type="hidden" asp-for="Token">
+                                <div class="input-group form-group">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text"><i class="fas fa-user"></i></span>
+                                    </div>
+                                    <input type="email" class="form-control" placeholder="Informe seu email" asp-for="Email">
+                                    <div class="error-message">
+                                        <small>
+                                            @Html.ValidationMessageFor(x => x.Email)
+                                        </small>
+                                    </div>
+                                </div>
+                                <div class="input-group form-group">
+                                    <div class="input-group-prepend modal-span">
+                                        <span class="input-group-text"><i class="fas fa-key"></i></span>
+                                    </div>
+                                    <input type="password" class="form-control modal-span" placeholder="Informe sua nova senha." asp-for="NovaSenha" id="senha">
+                                    <div class="error-message">
+                                        <small>
+                                            @Html.ValidationMessageFor(x => x.NovaSenha)
+                                        </small>
+                                    </div>
+                                </div>
+                                <div class="input-group form-group">
+                                    <div class="input-group-prepend modal-span">
+                                        <span class="input-group-text"><i class="fas fa-key"></i></span>
+                                    </div>
+                                    <input type="password" class="form-control modal-span" placeholder="Confirme sua nova senha." asp-for="ConfirmarSenha" id="confirmarSenha">
+                                    <div class="error-message">
+                                        <small>
+                                            @Html.ValidationMessageFor(x => x.ConfirmarSenha)
+                                        </small>
+                                    </div>
+                                </div>
+                                <div class="row align-items-center remember" style="font-size: 9pt; color: white; margin-top: -10px;">
+                                    <input type="checkbox" id="mascara-senha" onclick="MostrarSenhas()">Mostrar senhas
+                                </div>
+                                <div class="form-group">
+                                    <input type="submit" value="Recuperar" class="btn float-right login_btn">
+                                </div>
+                            </form>
+                        </div>
+                        <div class="card-footer rodape-card">
+                           
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<script src="~/js/Rotinas do front-end.js"></script>

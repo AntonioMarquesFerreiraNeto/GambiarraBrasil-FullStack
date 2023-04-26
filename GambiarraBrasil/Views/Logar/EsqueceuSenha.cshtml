@@ -1,0 +1,77 @@
+﻿@model EsqueceuSenha
+@{
+    Layout = "_LayoutNoConection";
+}
+<link rel="stylesheet" href="~/_css/index.css">
+<link rel="stylesheet" href="~/_css/logar.css">
+<link rel="stylesheet" href="~/_css/estiloGlobal.css">
+@if (TempData["Erro"] != null) {
+    <div class="container-center">
+        <div class="alert alert-danger" role="alert">
+            @TempData["Erro"]
+            <button type="button" class="btn btn-danger btn-sm close-alert error" aria-label="Close"><i class="fa fa-xmark"></i></button>
+        </div>
+    </div>
+}
+else if (TempData["Sucesso"] != null) {
+    <div class="container-center">
+        <div class="alert alert-success" role="alert">
+            @TempData["Sucesso"]
+            <button type="button" class="btn btn-danger btn-sm close-alert sucesso" aria-label="Close"><i class="fa fa-xmark"></i></button>
+        </div>
+    </div>
+}
+<section id="InformationAndLogin">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="d-flex justify-content-center h-100">
+                    <div class="card">
+                        <div class="card-header">
+                            <h3>Recuperação</h3>
+                        </div>
+                        <div class="card-body">
+                            <form asp-action="EsqueceuSenha" asp-controller="Logar" method="post">
+                                <div class="input-group form-group">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text"><i class="fas fa-user"></i></span>
+                                    </div>
+                                    <input type="email" class="form-control" placeholder="Informe seu email" asp-for="Email">
+                                    <div class="error-message">
+                                        <small>
+                                            @Html.ValidationMessageFor(x => x.Email)
+                                        </small>
+                                    </div>
+                                </div>
+                                <div class="input-group form-group">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text"><i class="fas fa-key"></i></span>
+                                    </div>
+                                    <input type="tel" class="form-control" placeholder="Informe seu telefone" asp-for="Tel" maxlength="11"
+                                           onkeypress=" if (!isNaN(String.fromCharCode(window.event.keyCode))) return true; else return false;">
+                                    <div class="error-message">
+                                        <small class="error-message">
+                                            @Html.ValidationMessageFor(x => x.Tel)
+                                        </small>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <input type="submit" value="Recuperar" class="btn float-right login_btn">
+                                </div>
+                            </form>
+                        </div>
+                        <div class="card-footer">
+                            <div class="d-flex justify-content-center links">
+                                Não tem uma conta?<a asp-action="Index" asp-controller="RegistroUser">Inscrição</a>
+                            </div>
+                            <div class="d-flex justify-content-center">
+                                <a asp-action="Index" asp-controller="Logar">Deseja logar?</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<script src="~/js/Rotinas do front-end.js"></script>

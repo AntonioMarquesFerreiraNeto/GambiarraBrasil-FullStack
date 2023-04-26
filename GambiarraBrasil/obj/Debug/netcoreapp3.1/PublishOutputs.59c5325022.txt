@@ -51,6 +51,7 @@ C:\Users\anton\source\repos\GambiarraBrasil\GambiarraBrasil\bin\Debug\netcoreapp
 C:\Users\anton\source\repos\GambiarraBrasil\GambiarraBrasil\bin\Debug\netcoreapp3.1\publish\wwwroot\_css\logar.css
 C:\Users\anton\source\repos\GambiarraBrasil\GambiarraBrasil\bin\Debug\netcoreapp3.1\publish\wwwroot\_css\minhasPublicacoes.css
 C:\Users\anton\source\repos\GambiarraBrasil\GambiarraBrasil\bin\Debug\netcoreapp3.1\publish\wwwroot\_css\modalEditSenha.css
+C:\Users\anton\source\repos\GambiarraBrasil\GambiarraBrasil\bin\Debug\netcoreapp3.1\publish\wwwroot\_css\redefinirsenha.css
 C:\Users\anton\source\repos\GambiarraBrasil\GambiarraBrasil\bin\Debug\netcoreapp3.1\publish\wwwroot\_css\_imagens\.DS_Store
 C:\Users\anton\source\repos\GambiarraBrasil\GambiarraBrasil\bin\Debug\netcoreapp3.1\publish\wwwroot\_css\_imagens\audio.png
 C:\Users\anton\source\repos\GambiarraBrasil\GambiarraBrasil\bin\Debug\netcoreapp3.1\publish\wwwroot\_css\_imagens\BackGround.png

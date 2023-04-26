@@ -3,7 +3,6 @@ using GambiarraBrasil.Helpers;
 using GambiarraBrasil.Models;
 using GambiarraBrasil.Repositorio;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore.Metadata;
 using System;
 
 namespace GambiarraBrasil.Controllers {

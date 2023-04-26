@@ -8,6 +8,7 @@
     <Compile Remove="Migrations\**" />
     <Content Remove="Migrations\**" />
     <EmbeddedResource Remove="Migrations\**" />
+    <None Remove="C:\Users\anton\.nuget\packages\microsoft.net.compilers\1.0.0\build\..\tools\**" />
     <None Remove="Migrations\**" />
   </ItemGroup>
 
@@ -26,6 +27,8 @@
     <Compile Include="Migrations\20230322204114_First 2 Join.Designer.cs" />
     <Compile Include="Migrations\20230323184545_Data de publicação.cs" />
     <Compile Include="Migrations\20230323184545_Data de publicação.Designer.cs" />
+    <Compile Include="Migrations\20230425213618_tokken.cs" />
+    <Compile Include="Migrations\20230425213618_tokken.Designer.cs" />
     <Compile Include="Migrations\BancoContextModelSnapshot.cs" />
   </ItemGroup>
 

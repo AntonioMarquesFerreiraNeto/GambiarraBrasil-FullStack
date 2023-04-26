@@ -47,13 +47,19 @@ h1.animation::after {
 }
 
 .card {
+    flex-grow: 1;
     margin: auto;
     margin-bottom: 10px;
     background-color: #f3f3f3;
     width: 90%;
     height: 90%;
 }
-
+.flex-container {
+    width: 90%;
+    margin: auto;
+    display: flex;
+    flex-direction: row;
+}
 .botoes {
     margin-left: 2px;
     margin-right: 2px;
@@ -67,9 +73,12 @@ h1.animation::after {
     color: green;
     background-color: transparent;
     border-color: green;
+    transition: 0.4s;
 }
 
     .ler:hover {
+        box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3);
+        transform: translateY(-2px);
         color: white;
         border-color: green;
         background-color: green;
@@ -79,9 +88,12 @@ h1.animation::after {
     color: blueviolet;
     background-color: transparent;
     border-color: blueviolet;
+    transition: 0.4s;
 }
 
     .editar:hover {
+        box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3);
+        transform: translateY(-2px);
         color: white;
         border-color: blueviolet;
         background-color: blueviolet;
@@ -91,9 +103,12 @@ h1.animation::after {
     color: red;
     background-color: transparent;
     border-color: red;
+    transition: 0.4s;
 }
 
     .excluir:hover {
+        box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3);
+        transform: translateY(-4px);
         color: white;
         border-color: red;
         background-color: red;
@@ -160,12 +175,35 @@ h1.animation::after {
     .sim-button:hover {
         background-color: #3e0078;
     }
-
-@media(max-width: 768px) {
-    .ler {
-        font-size: 9pt;
+@media(max-width: 270px) {
+    .botoes {
+        min-width: 0px;
+        padding-left: 5px;
+        padding-right: 5px;
     }
-
+}
+@media(max-width: 390px) {
+    .botoes {
+        min-width: 60px;
+        padding-left: 15px;
+        padding-right: 15px;
+    }
+    .text-opt {
+        display: none;
+        opacity: 0;
+    }
+}
+@media(max-widht: 450px){
+    .botoes {
+        min-width: 60px;
+        padding-left: 25px;
+        padding-right: 25px;
+    }
+    .arti {
+        width: 100%;
+    }
+}
+@media(max-width: 768px) {
     .container-position {
         justify-content: center;
     }

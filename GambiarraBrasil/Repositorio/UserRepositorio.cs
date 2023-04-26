@@ -12,15 +12,17 @@ using System.Xml.Linq;
 namespace GambiarraBrasil.Repositorio {
     public class UserRepositorio : UserIRepositorio {
         private readonly BancoContext _bancoContext;
-        public UserRepositorio(BancoContext bancoContext) {
+        private readonly IEmail _email;
+        public UserRepositorio(BancoContext bancoContext, IEmail email) {
             _bancoContext = bancoContext;
+            _email = email;
         }
-
         public RegistroUser CreateUser(RegistroUser registroUser) {
             try {
                 Usuario usuario = PopularUsuario(registroUser);
                 if (ValidarDuplicataUser(usuario)) throw new Exception("Desculpe, alguns dos registros passados já existem no sistema!");
                 usuario.CriptografarSenha();
+                usuario.GerarTokken();
                 _bancoContext.Add(usuario);
                 _bancoContext.SaveChanges();
                 return registroUser;
@@ -102,6 +104,10 @@ namespace GambiarraBrasil.Repositorio {
             }
         }
 
+        public Usuario ReturnUserEmailAndPhone(EsqueceuSenha esqueceuSenha) {
+            return _bancoContext.Usuario.FirstOrDefault(x => x.Email == esqueceuSenha.Email.Trim() && x.Phone == esqueceuSenha.Tel.Trim());
+        }
+
         public bool ValidarDuplicataUser(Usuario usuario) {
             List<Usuario> usuarios = _bancoContext.Usuario.ToList();
             if (usuarios.Any(x => x.Email == usuario.Email || x.Phone == usuario.Phone)) {
@@ -117,6 +123,21 @@ namespace GambiarraBrasil.Repositorio {
                 return true;
             }
             return false;
+        }
+
+        public RedefinirSenha RedefinirSenha(RedefinirSenha redefinirSenha) {
+            try {
+                Usuario usuario = _bancoContext.Usuario.FirstOrDefault(x => x.Email == redefinirSenha.Email.Trim());
+                if (usuario == null) throw new Exception("Desculpe, usuário não encontrado!");
+                if (usuario.Token != redefinirSenha.Token) throw new Exception("Desculpe, usuário não encontrado!");
+                usuario.SenhaUser = Criptografia.GerarHash(redefinirSenha.NovaSenha);
+                _bancoContext.Usuario.Update(usuario);
+                _bancoContext.SaveChanges();
+                return redefinirSenha;
+            }
+            catch (Exception error) {
+                throw new Exception(error.Message);
+            }
         }
     }
 }

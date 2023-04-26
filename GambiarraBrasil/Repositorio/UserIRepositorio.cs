@@ -8,5 +8,7 @@ namespace GambiarraBrasil.Repositorio {
         public Usuario ValidarCredenciais(Autenticar usuario);
         public Usuario ListUsuarioPorId(int? id);
         public Usuario ListUsuarioPorIdNoJoin(int? id);
+        public Usuario ReturnUserEmailAndPhone(EsqueceuSenha esqueceuSenha);
+        public RedefinirSenha RedefinirSenha(RedefinirSenha redefinirSenha);
     }
 }

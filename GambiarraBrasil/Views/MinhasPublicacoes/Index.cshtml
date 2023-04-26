@@ -43,9 +43,9 @@ else if (TempData["Sucesso"] != null) {
                                     @item.SubTitulo
                                 </p>
                                 <div class="container-position">
-                                    <a asp-action="EditArtigo" asp-controller="MinhasPublicacoes" asp-route-id="@item.Id" class="btn btn-outline-dark botoes editar"><i class="fa fa-edit"></i> Editar</a>
-                                    <a asp-action="Artigo" asp-controller="LerArtigos" asp-route-id="@item.Id" class="btn btn-outline-dark botoes ler"><i class="fa fa-file"></i> Visualisar</a>
-                                    <a href="#" data-toggle="modal" data-target="#dropArtigo" artigo-id="@item.Id" class="btn btn-outline-dark botoes excluir click-drop"><i class="fa fa-trash"></i> Excluir</a>
+                                    <a asp-action="EditArtigo" asp-controller="MinhasPublicacoes" asp-route-id="@item.Id" class="btn btn-outline-dark botoes editar"><i class="fa fa-edit"></i> <span class="text-opt">Editar</span></a>
+                                    <a asp-action="Artigo" asp-controller="LerArtigos" asp-route-id="@item.Id" class="btn btn-outline-dark botoes ler"><i class="fa fa-duotone fa-book-open"></i> <span class="text-opt">Abrir</span></a>
+                                    <a href="#" data-toggle="modal" data-target="#dropArtigo" artigo-id="@item.Id" class="btn btn-outline-dark botoes excluir click-drop"><i class="fa fa-trash"></i> <span class="text-opt">Excluir</span></a>
                                 </div>
                             </div>
                         </div>

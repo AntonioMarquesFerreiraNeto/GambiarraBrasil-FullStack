@@ -25,18 +25,16 @@
 <section id="navArtigos">
     <div class="container linksArtigos">
         <h2 id="tituloLer">Artigos.</h2>
-        <div class="row arti">
+        <div class="flex-container arti">
             @if (Model.Any() || Model.Count != 0) {
                 foreach (var item in Model) {
-                    <div class="col-md-6">
-                        <div class="card">
-                            <div class="card-body">
-                                <h5 class="card-title">@item.ReturnCategoria()</h5>
-                                <p class="card-text">
-                                    @item.SubTitulo
-                                </p>
-                                <a asp-action="Artigo" asp-controller="LerArtigos" asp-route-id="@item.Id" class="btn btn-outline-dark ler">Leia!</a>
-                            </div>
+                    <div class="card @((item == Model.Last())? "ultimo-item": "itens")">
+                        <div class="card-body">
+                            <h5 class="card-title">@item.ReturnCategoria()</h5>
+                            <p class="card-text">
+                                @item.SubTitulo
+                            </p>
+                            <a asp-action="Artigo" asp-controller="LerArtigos" asp-route-id="@item.Id" class="button">Leia!</a>
                         </div>
                     </div>
                 }
@@ -47,7 +45,7 @@
                         <div class="card-body">
                             <h5 class="card-title" style="text-align: center;">Gambiarra Brasil</h5>
                             <p class="card-text" style="text-align: center;">
-                               Nenhum artigo adicionado, adicione seu artigo para que as pessoas possam ler e aprender!
+                                Nenhum artigo adicionado, adicione seu artigo para que as pessoas possam ler e aprender!
                             </p>
                         </div>
                     </div>

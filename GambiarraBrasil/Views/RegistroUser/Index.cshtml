@@ -67,7 +67,7 @@
                                     <div class="input-group-prepend">
                                         <span class="input-group-text"><i class="fa fa-envelope"></i></span>
                                     </div>
-                                    <input type="email" class="form-control" placeholder="Informe seu email." asp-for="Email">
+                                    <input type="text" class="form-control" placeholder="Informe seu email." asp-for="Email">
                                     <div class="error-message">
                                         <small>
                                             @Html.ValidationMessageFor(x => x.Email)
@@ -98,7 +98,7 @@
                                     <div class="input-group-prepend">
                                         <span class="input-group-text"><i class="fas fa-phone"></i></span>
                                     </div>
-                                    <input type="tel" class="form-control" placeholder="Informe seu telefone." asp-for="Phone">
+                                    <input type="tel" class="form-control" placeholder="Informe seu telefone." asp-for="Phone" maxlength="11">
                                     <div class="error-message">
                                         <small>
                                             @Html.ValidationMessageFor(x => x.Phone)

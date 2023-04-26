@@ -10,6 +10,7 @@ namespace GambiarraBrasil.Models {
         public string Name { get; set; }
 
         [Required(ErrorMessage = "Campo obrigatório!")]
+        [ValidarEmail(ErrorMessage = "E-mail inválido!")]
         public string Email { get; set; }
 
         [Required(ErrorMessage = "Campo obrigatório!")]
